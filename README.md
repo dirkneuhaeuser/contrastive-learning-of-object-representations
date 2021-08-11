@@ -33,13 +33,13 @@ In this work, we will investigate the **SetCon** model from **'Learning Object-C
 The SetCon model has been published in November 2020 by the Google Brain Team and introduces an attention-based object extraction in combination with contrastive learning. It incorporates a novel <em> slot-attention module </em> [[2]](#2)([Paper](https://arxiv.org/abs/2006.15055)), which is an iterative attention mechanism to map the feature maps from the CNN-Encoder to a predefined number of object slots and has been inspired by the transformer models from the NLP world.
 
 We investigate the utility of this architecture when used together with realistic video footage. 
-Therefore, we **implemented the SetCon with pytorch** according to its description and build upon it to meet our requirements.
+Therefore, we **implemented the SetCon with PyTorch** according to its description and build upon it to meet our requirements.
 We then created two different datasets, in which we film given objects from different angles and distances, similar to Pirk [[3]](#3) ([Github](https://online-objects.github.io/), [Paper](https://arxiv.org/abs/1906.04312)). However, they relied on a faster-RCNN for the object detection, whereas the goal of the SetCon is to extract the objects solely by leveraging the contrastive loss and the slot attention module.
 By training a decoder on top of the learned representations, we found that in many cases the model can successfully extract objects from a scene.
 
-This repo contains our pytorch-implementation of the SetCon according to the authors description. **Note, this is not the official implementation.** If you have questions, feel free to reach out to me. 
-
-
+This repository contains our PyTorch-implementation of the SetCon-Model from 'Learning Object-Centric Video Models by Contrasting Sets' by Löwe et al.
+Implementation is based on the description in the article. 
+**Note, this is not the official implementation.** If you have questions, feel free to reach out to me. 
 
 
 ## Results
