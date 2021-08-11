@@ -1,3 +1,6 @@
+
+
+
 # Contrastive Learning of Object Representations
 
 
@@ -16,20 +19,32 @@
 
 ## Project Description
 
+
+
+
 **Contrastive Learning** is an unsupervised method for learning similarities or differences in a dataset, whithout the need of labels. The main idea is to provide the machine with similar (so called positive samples) and with very different data (negative or corrupted samples). The task of the machine then is to leverage this information and to pull the positive examples in the embedded space together, while pushing the negative examples further apart. Next to being unsupervised, another major advantage is that the loss is applied on the latent space rather than being pixel-base. This saves computation and memory, because there is no need for a decoder and also delivers more accurate results.
 
-In this work, we will investigate the novel **SetCon** model from **'Learning Object-Centric Video Models by Contrasting Sets' by Löwe et al.** [[1]](#1) ([Paper](https://arxiv.org/abs/2011.10287))
+
+<p align="center">
+<img width="850" alt="eval_3_obj" src="https://github.com/dirkneuhaeuser/contrastive-learning-of-object-representations/blob/main/example_images/three_obj_presentation.gif"><br/>
+</p>
+
+In this work, we will investigate the **SetCon** model from **'Learning Object-Centric Video Models by Contrasting Sets' by Löwe et al.** [[1]](#1) ([Paper](https://arxiv.org/abs/2011.10287))
 The SetCon model has been published in November 2020 by the Google Brain Team and introduces an attention-based object extraction in combination with contrastive learning. It incorporates a novel <em> slot-attention module </em> [[3]](#3)([Paper](https://arxiv.org/abs/2006.15055)), which is an iterative attention mechanism to map the feature maps from the CNN-Encoder to a predefined number of object slots and has been inspired by the transformer models from the NLP world.
 
 We investigate the utility of this architecture when used together with realistic video footage. 
 Therefore, we **implemented the SetCon with pytorch** according to its description and build upon it to meet our requirements.
-We then created two different datasets, in which we film given objects from different angles and distances, similar to Pirk [[2]](#2) ([Github](https://online-objects.github.io/), [Paper](https://arxiv.org/abs/1906.04312)). However, they relied on a faster-RCNN for the object detection, whereas we are keen to extract the objects solely by leveraging the contrastive loss and the slot attention module.
+We then created two different datasets, in which we film given objects from different angles and distances, similar to Pirk [[2]](#2) ([Github](https://online-objects.github.io/), [Paper](https://arxiv.org/abs/1906.04312)). However, they relied on a faster-RCNN for the object detection, whereas the goal of the SetCon is to extract the objects solely by leveraging the contrastive loss and the slot attention module.
 By training a decoder on top of the learned representations, we found that in many cases the model can successfully extract objects from a scene.
 
 This repo contains our pytorch-implementation of the SetCon according to the authors description. **Note, this is not the official implementation.** If you have questions, feel free to reach out to me. 
 
 
+
+
 ## Results
+
+
 For our work, we have taken two videos, a Three-Object video and a Seven-Object video. In these videos we interacted with the given objects and moved them to different places and constantly changed the view perspective. Both are 30mins long, such that each contains about 54.000 frames.
 
 
